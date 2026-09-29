@@ -1,0 +1,13 @@
+<form class="form" (submit)="onSubmit($event)">
+  <textarea
+    class="input"
+    [value]="text()"
+    (input)="onInput($event)"
+    [attr.maxlength]="maxLength"
+    [disabled]="pending()"
+    placeholder="Написать ответ…"
+    aria-label="Текст ответа"
+    rows="3"
+  ></textarea>
+  <button class="submit" type="submit" [disabled]="disabled()">Отправить</button>
+</form>

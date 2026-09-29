@@ -1,0 +1,5 @@
+<div class="meta">
+  <span class="author">{{ message().author }}</span>
+  <app-time-ago [date]="message().createdAt" />
+</div>
+<p class="text">{{ message().text }}</p>

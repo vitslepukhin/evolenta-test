@@ -1,0 +1,37 @@
+<div class="shell">
+  <aside class="list">
+    <app-ticket-search-bar class="ticket-search-bar" />
+
+    @let view = listView();
+    @switch (view.kind) {
+      @case ('loading') {
+        <app-loading-indicator class="loading-indicator" label="Загрузка обращений…" />
+      }
+      @case ('error') {
+        <app-error-state [message]="view.message" (retry)="onRetry()" />
+      }
+      @case ('empty') {
+        <app-empty-state message="Обращения не найдены" />
+      }
+      @case ('stale') {
+        <app-error-state [message]="view.message" (retry)="onRetry()" />
+        <app-ticket-list
+          [tickets]="view.tickets"
+          [selectedId]="selectedId()"
+          (ticketSelect)="onTicketSelect($event)"
+        />
+      }
+      @case ('ready') {
+        <app-ticket-list
+          [tickets]="view.tickets"
+          [selectedId]="selectedId()"
+          (ticketSelect)="onTicketSelect($event)"
+        />
+      }
+    }
+  </aside>
+
+  <section class="detail">
+    <router-outlet />
+  </section>
+</div>

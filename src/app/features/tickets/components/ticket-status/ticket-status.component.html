@@ -1,0 +1,13 @@
+@if (!updating() && status(); as current) {
+  <app-status-select
+    [status]="current"
+    [disabled]="disabled()"
+    (statusChange)="onStatusChange($event)"
+  />
+}
+@if (updating()) {
+  <app-loading-indicator label="" />
+}
+@if (error(); as message) {
+  <p class="error" role="alert">{{ message }}</p>
+}

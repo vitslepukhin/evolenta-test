@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  height: 100%;
+  min-height: 0;
+}
+
+.shell {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.list {
+  flex: 0 0 360px;
+  width: 360px;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  border-right: 1px solid lightsteelblue;
+  overflow: auto;
+
+  .ticket-search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .loading-indicator {
+    margin: 1.5rem;
+  }
+}
+
+.detail {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .list {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: none;
+    max-height: 50dvh;
+    border-right: none;
+    border-bottom: 1px solid lightsteelblue;
+  }
+}

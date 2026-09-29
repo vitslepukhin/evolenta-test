@@ -1,0 +1,30 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  &.info {
+    background: royalblue;
+    color: white;
+  }
+
+  &.progress {
+    background: sienna;
+    color: white;
+  }
+
+  &.waiting {
+    background: darkorchid;
+    color: white;
+  }
+
+  &.success {
+    background: seagreen;
+    color: white;
+  }
+}

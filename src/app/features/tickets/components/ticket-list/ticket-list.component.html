@@ -1,0 +1,7 @@
+@for (ticket of tickets(); track ticket.id) {
+  <app-ticket-list-item
+    [ticket]="ticket"
+    [selected]="ticket.id === selectedId()"
+    (select)="ticketSelect.emit($event)"
+  />
+}

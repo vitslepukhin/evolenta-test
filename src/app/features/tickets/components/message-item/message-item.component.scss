@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  max-width: 80%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  /*
+   * Вне окна прокрутки списка браузер пропускает layout и paint содержимого.
+   * `auto` запоминает реальную высоту после первого показа, 3.5rem — только
+   * запас до этого (примерно одна короткая реплика).
+   */
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 3.5rem;
+
+  &.customer {
+    background: lavenderblush;
+    margin-right: auto;
+  }
+
+  &.agent {
+    background: powderblue;
+    margin-left: auto;
+  }
+}
+
+.meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-size: 0.75rem;
+  color: slategray;
+  margin-bottom: 0.25rem;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

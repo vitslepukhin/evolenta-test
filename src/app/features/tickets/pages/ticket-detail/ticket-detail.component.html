@@ -1,0 +1,31 @@
+@let view = detailView();
+@switch (view.kind) {
+  @case ('loading') {
+    <app-loading-indicator class="loading-indicator" label="Загрузка обращения…" />
+  }
+  @case ('error') {
+    <app-error-state [message]="view.message" (retry)="onRetry()" />
+  }
+  @case ('ready') {
+    <header class="header">
+      <div class="heading">
+        <h2 class="subject">{{ view.ticket.subject }}</h2>
+        <p class="requester">{{ view.ticket.requester }}</p>
+      </div>
+      <app-ticket-status [ticketId]="view.ticket.id" />
+    </header>
+
+    <app-message-list class="message-list" [messages]="view.ticket.messages" />
+
+    @if (replyError()) {
+      <p class="reply-error" role="alert">{{ replyError() }}</p>
+    }
+
+    <app-reply-form
+      class="reply-form"
+      [(text)]="replyDraft"
+      [pending]="replyPending()"
+      (replySubmit)="onReplySubmit($event)"
+    />
+  }
+}

@@ -1,0 +1,29 @@
+<div class="search-bar">
+  <label class="field">
+    <span class="label">Поиск</span>
+    <input
+      type="search"
+      class="control"
+      [value]="queryDraft()"
+      (input)="onQueryInput($event)"
+      [attr.maxlength]="maxLength"
+      placeholder="Тема или имя обращающегося"
+      aria-label="Поиск по теме или имени"
+    />
+  </label>
+
+  <label class="field">
+    <span class="label">Статус</span>
+    <select
+      class="control"
+      [value]="filters().status ?? ''"
+      (change)="onStatusChange($event)"
+      aria-label="Фильтр по статусу"
+    >
+      <option value="" [selected]="filters().status === null">Все статусы</option>
+      @for (s of statuses; track s) {
+        <option [attr.value]="s" [selected]="s === filters().status">{{ statusLabels[s] }}</option>
+      }
+    </select>
+  </label>
+</div>

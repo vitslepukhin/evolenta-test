@@ -1,0 +1,8 @@
+<div class="main">
+  <span class="subject">{{ ticket().subject }}</span>
+  <span class="requester">{{ ticket().requester }}</span>
+</div>
+<div class="meta">
+  <app-ticket-status [ticketId]="ticket().id" />
+  <app-time-ago [date]="ticket().updatedAt" />
+</div>

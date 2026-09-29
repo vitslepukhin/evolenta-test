@@ -1,0 +1,15 @@
+<span class="face" aria-hidden="true">
+  <app-status-badge [label]="statusLabels[status()]" [type]="statusTypes[status()]" />
+</span>
+
+<select
+  class="native"
+  [value]="status()"
+  [disabled]="disabled()"
+  (change)="onStatusChange($event)"
+  aria-label="Статус обращения"
+>
+  @for (s of statuses; track s) {
+    <option [attr.value]="s" [selected]="s === status()">{{ statusLabels[s] }}</option>
+  }
+</select>

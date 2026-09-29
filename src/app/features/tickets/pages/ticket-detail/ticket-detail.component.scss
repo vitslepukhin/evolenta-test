@@ -1,0 +1,57 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+
+  .loading-indicator {
+    margin: 1.5rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+  min-width: 0;
+  padding: 1rem;
+  border-bottom: 1px solid lightsteelblue;
+
+  .heading {
+    min-width: 0;
+  }
+
+  .subject {
+    margin: 0 0 0.25rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+.requester {
+  margin: 0;
+  color: slategray;
+  font-size: 0.875rem;
+}
+
+.message-list {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+
+.reply-form {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.reply-error {
+  margin: 0;
+  padding: 0.5rem 1rem 0;
+  color: crimson;
+  font-size: 0.875rem;
+}

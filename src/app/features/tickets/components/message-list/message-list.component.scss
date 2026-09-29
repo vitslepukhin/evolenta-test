@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 0;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.empty {
+  color: slategray;
+  text-align: center;
+}

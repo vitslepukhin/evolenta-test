@@ -1,0 +1,5 @@
+@for (message of messages(); track message.id) {
+  <app-message-item [message]="message" />
+} @empty {
+  <p class="empty">Сообщений пока нет</p>
+}
